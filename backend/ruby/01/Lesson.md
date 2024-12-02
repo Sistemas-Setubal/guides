@@ -1,4 +1,7 @@
-
+---
+aliases:
+  - First Ruby Practice Lesson
+---
 ## Docs:
 https://ruby-doc.org/3.3.6/
 
