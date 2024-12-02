@@ -24,11 +24,11 @@ After this training stage the trainee should be able to:
 + Ranges
 + Hello, world!
 
-The [[Lesson]] file in this directory contains commented code examples for all of these concepts.
+The [[backend/ruby/01/Lesson]] file in this directory contains commented code examples for all of these concepts.
 
 ## Practice
 
-In order to complete this practice exercise, make a file named `01.rb`.
+In order to complete this practice exercise, make a file named `main.rb` inside a folder named 01.
 
 Each trainee will practice the previously covered theory by writing a Ruby script according to the following instructions/requirements. Each step represents a different "step" in the script:
 
