@@ -8,7 +8,7 @@ REVIEWEES = [
 
 
 
-def add_reviewer()
+def add_reviewer
   puts 'What is the name who you will add to reviewers?'
   reviewer = gets.chomp
 
@@ -29,6 +29,10 @@ def review(filename='review.txt', &block)
 
   reviewee = REVIEWEES.find { |r| r[:name] == revwe }
 
+  if reviewee.nil?
+    puts 'ERROR: Reviewee not found'
+    return
+  end
   r1, r2 = select_reviewer
 
   reviewers = "Email send: Your reviewers are #{r1} and #{r2}."
@@ -50,12 +54,12 @@ end
 
 
 def show_reviewers
-  puts "Reviewers: "
+  puts 'Reviewers: '
   REVIEWERS.map{|r| puts r.to_s}
 end
 
 def show_reviewees
-  puts "Reviewees: "
+  puts 'Reviewees: '
   REVIEWEES.map{|r| puts r[:name].to_s.ljust(20) + r[:email].to_s }
 end
 
