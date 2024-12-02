@@ -19,18 +19,15 @@ end
 
 def add_skills(developers)
 
-  if developers.empty?
-    puts 'There are not Devs'
-
-  end
+  puts 'There are not Devs' if developers.empty?
   
   puts "What is the name that you will add skill? \nDevelopers:"
-  developers.each{|dev|
+  developers.each do |dev|
     puts "#{dev[:name]}"
-  }
+  end
   name =  gets.chomp
   
-  developers.each{|dev|
+  developers.each do |dev|
     if dev[:name] == name
       puts 'Add a new skill: '
       skill = gets.chomp
@@ -38,22 +35,21 @@ def add_skills(developers)
       dev[:skills] << skill
   
     end
-  }
+  end
 end
 
 def add_friend(developers)
 
-  if developers.empty?
-    puts 'There are not Devs'
-
-  end
+  puts 'There are not Devs' if developers.empty?
   puts "What is the name that you will add friend? \nDevelopers:"
-  developers.each{|dev|
+  
+  developers.each do |dev|
     puts "#{dev[:name]}"
-  }
+  end 
+
   name =  gets.chomp
   
-  developers.each{|dev|
+  developers.each do |dev|
     if dev[:name] == name
       puts "What is the name of the new #{name}'s friend: "
       friend = gets.chomp
@@ -67,24 +63,20 @@ def add_friend(developers)
 
       dev[:friends]  << add
     end
-  }
+  end
 end
 
 def show_devs(developers)
   
-  if developers.empty?
-    puts 'There are not Devs'
+  puts 'There are not Devs' if developers.empty?
 
-  end
-  
-  developers.each{|dev|
+  developers.each do |dev|
   
     countFriends = dev[:friends].length
 
     puts "#{dev[:name]} is a #{dev[:age]} years old with #{countFriends} friend and is able to #{dev[:skills] * ", "}" + "."
     
-  }
-
+  end
 end
 
 
