@@ -28,7 +28,7 @@ def greeting(name)
   "Hi my name is #{name}, nice to meet you!"
 end
 
-greeting 'Abraham' #=> Hi my name is Javier, nice to meet you!
+greeting 'Javier' #=> Hi my name is Javier, nice to meet you!
 ```
 
 ```ruby
