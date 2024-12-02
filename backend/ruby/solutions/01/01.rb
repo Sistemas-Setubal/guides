@@ -1,7 +1,7 @@
 developers = Array.new
 
-def addDev(developers)
-  puts "What is his/her name?: "
+def add_dev(developers)
+  puts 'What is his/her name?: '
   name = gets.chomp
 
   puts "How old are #{name}: "
@@ -14,15 +14,14 @@ def addDev(developers)
   id = developers.length + 1
   add = {id: id, name: name, age: age, skills: skills, friends: friends}
 
-  developers << add
-  return 
+  developers << add 
 end
 
-def addSkills(developers)
+def add_skills(developers)
 
   if developers.empty?
-    puts "There are not Devs"
-    return
+    puts 'There are not Devs'
+
   end
   
   puts "What is the name that you will add skill? \nDevelopers:"
@@ -33,21 +32,20 @@ def addSkills(developers)
   
   developers.each{|dev|
     if dev[:name] == name
-      puts "Add a new skill: "
+      puts 'Add a new skill: '
       skill = gets.chomp
       
-      dev[:skills].push(skill)
-      return
+      dev[:skills] << skill
+  
     end
   }
-  return
 end
 
-def addFriend(developers)
+def add_friend(developers)
 
   if developers.empty?
-    puts "There are not Devs"
-    return
+    puts 'There are not Devs'
+
   end
   puts "What is the name that you will add friend? \nDevelopers:"
   developers.each{|dev|
@@ -67,16 +65,16 @@ def addFriend(developers)
       
       add = {id: id, name: name, age: age}
 
-      dev[:friends].push(add)
+      dev[:friends]  << add
     end
   }
 end
 
-def showDevs(developers)
+def show_devs(developers)
   
   if developers.empty?
-    puts "There are not Devs"
-    return
+    puts 'There are not Devs'
+
   end
   
   developers.each{|dev|
@@ -87,33 +85,32 @@ def showDevs(developers)
     
   }
 
-  return
 end
 
 
-def Menu(developers)
+def menu(developers)
   puts "\n\nMenu.\n1.- Add Dev.\n2.- Add Skills.\n3.- Add Friend.\n4.- Show Devs.\n5.- Exit."
   
   option = gets.chomp.to_i
   
   case option
   when 1
-    addDev(developers)
+    add_dev(developers)
   when 2
-    addSkills(developers)
+    add_skills(developers)
   when 3
-    addFriend(developers)
+    add_friend(developers)
   when 4
-    showDevs(developers)
+    show_devs(developers)
   when 5
     return false
   else 
-    puts "ERROR: Invalid option"
+    puts 'ERROR: Invalid option'
   end
 end
 
-until Menu(developers) == false do
-  Menu(developers)
+until menu(developers) == false do
+  menu(developers)
 end
 
 
