@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "d950dd9e0a64c193",
+        "id": "fd48d16622821f03",
         "type": "tabs",
         "children": [
           {
-            "id": "510d718c79d16c69",
+            "id": "520d9a76da462f00",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "backend/ruby/02/Lesson.md",
+                "file": "backend/ruby/02/Functions and Methods in Ruby.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Lesson"
+              "title": "Functions and Methods in Ruby"
             }
           }
         ]
@@ -34,18 +34,6 @@
         "id": "742ee2cc68a6c261",
         "type": "tabs",
         "children": [
-          {
-            "id": "f5623a43af77d3c3",
-            "type": "leaf",
-            "state": {
-              "type": "file-explorer",
-              "state": {
-                "sortOrder": "alphabetical"
-              },
-              "icon": "lucide-folder-closed",
-              "title": "Files"
-            }
-          },
           {
             "id": "f066ee6010fdac04",
             "type": "leaf",
@@ -72,8 +60,21 @@
               "icon": "lucide-bookmark",
               "title": "Bookmarks"
             }
+          },
+          {
+            "id": "d746f0be5104b755",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -93,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "backend/ruby/01/Introduction to the Ruby Language.md",
+                "file": "git/README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Introduction to the Ruby Language"
+              "title": "Backlinks for README"
             }
           },
           {
@@ -112,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "backend/ruby/01/Introduction to the Ruby Language.md",
+                "file": "git/README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Introduction to the Ruby Language"
+              "title": "Outgoing links from README"
             }
           },
           {
@@ -139,18 +140,18 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "backend/ruby/02/Lesson.md"
+                "file": "git/README.md"
               },
               "icon": "lucide-list",
-              "title": "Outline of Lesson"
+              "title": "Outline of README"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -162,36 +163,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b0dfeb740b18aac0",
+  "active": "520d9a76da462f00",
   "lastOpenFiles": [
-    "backend/ruby/02/Functions and Methods in Ruby.md",
+    "backend/ruby/solutions/02/review.txt",
     "backend/ruby/02/Lesson.md",
+    "backend/ruby/02/Functions and Methods in Ruby.md",
+    "backend/ruby/solutions/02/sample.txt",
     "backend/ruby/01/Lesson.md",
     "backend/ruby/01/Introduction to the Ruby Language.md",
-    "git/README.md",
+    "backend/ruby/solutions/02/main.rb",
+    "backend/ruby/solutions/02",
+    "backend/ruby/solutions/01/02",
     "backend/ruby/README.md",
-    "backend/ruby/Setting Up.md",
-    "backend/ruby/08/Your first Blog Ruby Web App.md",
-    "backend/ruby/08",
-    "backend/ruby/07/Serving Web Pages with Ruby using Rack and ERB.md",
-    "backend/ruby/07",
-    "backend/ruby/06/Web Scraping in Ruby.md",
-    "backend/ruby/06",
-    "backend/ruby/05/IO Working with Files in Ruby.md",
-    "backend/ruby/05",
-    "backend/ruby/04/Ruby's Libraries Working with Gems.md",
-    "backend/ruby/04",
-    "backend/ruby/03/Data and Behavior Encapsulation in Ruby.md",
-    "backend/ruby/03",
     "backend/ruby/02",
-    "backend/ruby/Untitled",
-    "backend/ruby/01/Practice.md",
-    "backend/ruby/03/Functions and Methods in Ruby.md",
-    "Introduction to the Ruby Language.md",
-    "01 - Introduction to the Ruby Language.md",
-    "backend/ruby/01",
-    "00 - Setting Up.md",
-    "backend/ruby/08.md",
+    "backend/ruby/Setting Up.md",
+    "git/README.md",
+    "backend/ruby/01/01.rb",
     "git/step_3.png",
     "git/step_5.png",
     "git/step_5.png",
@@ -199,6 +186,8 @@
     "git/step_4.png",
     "git/step_1.png",
     "backend/ruby",
+    "Untitled",
+    "backend",
     "create a link.md",
     "Welcome.md"
   ]
