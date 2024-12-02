@@ -162,10 +162,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "f5623a43af77d3c3",
+  "active": "b0dfeb740b18aac0",
   "lastOpenFiles": [
-    "git/step_3.png",
+    "backend/ruby/README.md",
+    "backend/ruby/Setting Up.md",
     "git/README.md",
+    "backend/ruby/01/Introduction to the Ruby Language.md",
+    "backend/ruby/01/Lesson.md",
+    "backend/ruby/01/01.rb",
+    "git/step_3.png",
     "git/step_5.png",
     "git/step_5.png",
     "git/step_4.png",
