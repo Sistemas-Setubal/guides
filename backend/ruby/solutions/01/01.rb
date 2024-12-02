@@ -1,4 +1,4 @@
-developers = Array.new
+developers = []
 
 def add_dev(developers)
   puts 'What is his/her name?: '
@@ -6,60 +6,47 @@ def add_dev(developers)
 
   puts "How old are #{name}: "
   age = gets.chomp.to_i
-  
-  skills = Array.new
-  
-  friends = Array.new
+  skills = []
+  friends = []
 
   id = developers.length + 1
-  add = {id: id, name: name, age: age, skills: skills, friends: friends}
+  add = { id: id, name: name, age: age, skills: skills, friends: friends }
 
-  developers << add 
+  developers << add
 end
 
 def add_skills(developers)
-
   puts 'There are not Devs' if developers.empty?
-  
   puts "What is the name that you will add skill? \nDevelopers:"
   developers.each do |dev|
-    puts "#{dev[:name]}"
+    puts dev[:name].to_s
   end
-  name =  gets.chomp
-  
+  name = gets.chomp
   developers.each do |dev|
     if dev[:name] == name
       puts 'Add a new skill: '
       skill = gets.chomp
-      
       dev[:skills] << skill
-  
     end
   end
 end
 
 def add_friend(developers)
-
   puts 'There are not Devs' if developers.empty?
   puts "What is the name that you will add friend? \nDevelopers:"
-  
   developers.each do |dev|
-    puts "#{dev[:name]}"
-  end 
+    puts dev[:name].to_s
+  end
 
-  name =  gets.chomp
-  
+  name = gets.chomp
   developers.each do |dev|
     if dev[:name] == name
       puts "What is the name of the new #{name}'s friend: "
       friend = gets.chomp
-      
       puts "How old are #{friend}:  "
       age = gets
-      
       id = dev[:friends].length + 1
-      
-      add = {id: id, name: name, age: age}
+      add = { id: id, name: name, age: age }
 
       dev[:friends]  << add
     end
@@ -72,7 +59,7 @@ def show_devs(developers)
 
   developers.each do |dev|
   
-    countFriends = dev[:friends].length
+    count_friends = dev[:friends].length
 
     puts "#{dev[:name]} is a #{dev[:age]} years old with #{countFriends} friend and is able to #{dev[:skills] * ", "}" + "."
     
