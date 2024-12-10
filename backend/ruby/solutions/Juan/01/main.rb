@@ -5,10 +5,10 @@ def addUser(user)
     $developers.push(user)
     skillsMsg = ""
 
-    for skill in user["skills"]
+    for skill in user[:skills]
         skillsMsg = "#{skill}, #{skillsMsg}"
     end  
-    message = "#{user["name"]} is a #{user["age"]} old developer with #{user["friends"]} friends and is able to #{skillsMsg}"
+    message = "#{user[:name]} is a #{user[:age]} old developer with #{user[:friends]} friends and is able to #{skillsMsg}"
     puts "#{message.strip.chop}." 
 
 end
@@ -32,14 +32,7 @@ def getInfoUser()
     age = validateInteger("Ingresa tu edad")
     friends = validateInteger("Ingresa tu número de amigos")
 
-    user = {}
-    user["name"] = name
-    user["age"] = age
-    user["skills"] = addSkills()
-    user["friends"] = friends
-
-
-    return user
+    { name: name, age: age, friends: friends, skills: addSkills }
 end
 
 
@@ -73,7 +66,7 @@ end
 def main 
     addNewUser = true
     while addNewUser == true
-        user = getInfoUser()
+        user = getInfoUser
         addUser(user)
 
         puts "Añadir un nuevo usuario?"
