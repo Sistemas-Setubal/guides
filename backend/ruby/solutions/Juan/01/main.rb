@@ -1,21 +1,21 @@
 DEVELOPERS = []
 
 def addUser(user)
-    user['id'] = DEVELOPERS.length + 1
+    user[:id] = DEVELOPERS.length + 1
     DEVELOPERS.push user
     skills_msg = ''
     user[:skills].each do |skill|
         skills_msg = "#{skill}, #{skills_msg}"
     end
     message = "#{user[:name]} is a #{user[:age]} old developer with #{user[:friends]} friends and is able to #{skills_msg}"
-    puts "#{message.strip.chop}." 
+    puts message.strip.chop 
 end
 
 def validateInteger(message)
     begin
-        system('clear')
+        system 'clear'
         puts message
-        Integer(gets)
+        Integer gets
     rescue ArgumentError => e
         puts "Solo se permiten numeros enteros #{e}"
     retry
@@ -25,12 +25,12 @@ end
 def get_info_user
     puts 'Ingresa tu nombre'
     name = gets.chomp.to_s
-    age = validateInteger('Ingresa tu edad')
-    friends = validateInteger('Ingresa tu número de amigos')
+    age = validateInteger 'Ingresa tu edad'
+    friends = validateInteger 'Ingresa tu número de amigos'
     { name: name, age: age, friends: friends, skills: add_skills }
 end
 
-def add_skills()
+def add_skills
     skills = []
     add_skill = '1'
     system('clear')
@@ -42,7 +42,7 @@ def add_skills()
         puts 'Añadir nueva habilidad?'
         puts '0 No 1 Si'
         add_skill = gets.chomp.to_s
-        system('clear')
+        system 'clear'
     end
     skills
 end
