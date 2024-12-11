@@ -1,69 +1,60 @@
 DEVELOPERS = []
 
 def addUser(user)
-    user["id"] = DEVELOPERS.length + 1
+    user['id'] = DEVELOPERS.length + 1
     DEVELOPERS.push user
-    skills_msg = ""
-
+    skills_msg = ''
     user[:skills].each do |skill|
         skills_msg = "#{skill}, #{skills_msg}"
-    end  
+    end
     message = "#{user[:name]} is a #{user[:age]} old developer with #{user[:friends]} friends and is able to #{skills_msg}"
     puts "#{message.strip.chop}." 
-
 end
 
 def validateInteger(message)
-
     begin
-        system("clear")
+        system('clear')
         puts message
-        return Integer(gets)
+        Integer(gets)
     rescue ArgumentError => e
         puts "Solo se permiten numeros enteros #{e}"
     retry
     end
-
 end
 
-def getInfoUser()
-    puts "Ingresa tu nombre"
+def get_info_user
+    puts 'Ingresa tu nombre'
     name = gets.chomp.to_s
-    age = validateInteger("Ingresa tu edad")
-    friends = validateInteger("Ingresa tu número de amigos")
-
-    { name: name, age: age, friends: friends, skills: addSkills }
+    age = validateInteger('Ingresa tu edad')
+    friends = validateInteger('Ingresa tu número de amigos')
+    { name: name, age: age, friends: friends, skills: add_skills }
 end
 
-def addSkills()
+def add_skills()
     skills = []
-    addSkill = '1'
-    system("clear")
+    add_skill = '1'
+    system('clear')
     
-    while addSkill == '1'
-        puts "Añade una habilidad"
+    while add_skill == '1'
+        puts 'Añade una habilidad'
         skill = gets.chomp.to_s
         skills.push skill
-        puts "Añadir nueva habilidad?"
-        puts "0 No 1 Si"
-        addSkill = gets.chomp.to_s
-        system("clear")
+        puts 'Añadir nueva habilidad?'
+        puts '0 No 1 Si'
+        add_skill = gets.chomp.to_s
+        system('clear')
     end
-
-    return skills
-
+    skills
 end
 
 def main 
-    addNewUser = '1'
-    while addNewUser == '1'
-        user = getInfoUser
+    add_new_user = '1'
+    while add_new_user == '1'
+        user = get_info_user
         addUser user
-
-        puts "Añadir un nuevo usuario?"
-        puts "0 No 1 Si"
-             
-        addNewUser = gets.chomp.to_s
+        puts 'Añadir un nuevo usuario?'
+        puts '0 No 1 Si'        
+        add_new_user = gets.chomp.to_s
     end
 end
 
