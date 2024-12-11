@@ -1,6 +1,6 @@
 DEVELOPERS = []
 
-def addUser(user)
+def add_user(user)
     user[:id] = DEVELOPERS.length + 1
     DEVELOPERS.push user
     skills_msg = ''
@@ -11,7 +11,7 @@ def addUser(user)
     puts message.strip.chop 
 end
 
-def validateInteger(message)
+def validate_integer(message)
     begin
         system 'clear'
         puts message
@@ -25,8 +25,8 @@ end
 def get_info_user
     puts 'Ingresa tu nombre'
     name = gets.chomp.to_s
-    age = validateInteger 'Ingresa tu edad'
-    friends = validateInteger 'Ingresa tu número de amigos'
+    age = validate_integer 'Ingresa tu edad'
+    friends = validate_integer 'Ingresa tu número de amigos'
     { name: name, age: age, friends: friends, skills: add_skills }
 end
 
@@ -51,7 +51,7 @@ def main
     add_new_user = '1'
     while add_new_user == '1'
         user = get_info_user
-        addUser user
+        add_user user
         puts 'Añadir un nuevo usuario?'
         puts '0 No 1 Si'        
         add_new_user = gets.chomp.to_s
