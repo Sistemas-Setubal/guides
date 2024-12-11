@@ -10,7 +10,7 @@ def main
         message =  "#{send_to}#{greeting}#{body}."
         puts message
         File.open "#{reviewee.downcase}@localsolutionit.txt", "w" do |f|     
-            f.write(message)   
+            f.write message  
         end   
     end
 end
