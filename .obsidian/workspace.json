@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "backend/ruby/02/Functions and Methods in Ruby.md",
+                "file": "git/README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Functions and Methods in Ruby"
+              "title": "README"
             }
           }
         ]
@@ -67,7 +67,8 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
+                "sortOrder": "alphabetical",
+                "autoReveal": false
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -165,9 +166,9 @@
   },
   "active": "520d9a76da462f00",
   "lastOpenFiles": [
+    "backend/ruby/02/Functions and Methods in Ruby.md",
     "backend/ruby/solutions/02/review.txt",
     "backend/ruby/02/Lesson.md",
-    "backend/ruby/02/Functions and Methods in Ruby.md",
     "backend/ruby/solutions/02/sample.txt",
     "backend/ruby/01/Lesson.md",
     "backend/ruby/01/Introduction to the Ruby Language.md",
