@@ -26,7 +26,7 @@ def show (operador)
     end
 end
 
-def add_skill operator
+def add_skill (operator)
     show operator
     puts 'Whats the name you search?: '
     name = gets.chomp
@@ -42,7 +42,7 @@ def add_skill operator
     pause
 end
 
-def add_friend operator
+def add_friend (operator)
     show operator
     puts 'Whats the name you search?: '
     name = gets.chomp
@@ -64,7 +64,7 @@ def pause
     system 'clear'
 end
 
-def show_devs operator
+def show_devs (operator)
     puts 'There are not Devs' if operator.empty?
 
     operator.each do |dev|
@@ -75,7 +75,7 @@ def show_devs operator
     pause
 end
 
-def menu  developers
+def menu  (developers)
     puts 'Menu.
     1.- Add Dev.
     2.- Add Skills.
@@ -86,21 +86,12 @@ def menu  developers
     puts 'Choose an option: ' 
     option = gets.chomp.to_i
     
-    if option == 1
-      add developers
-    elsif option == 2
-      add_skill developers
-    elsif option == 3
-      add_friend developers
-    elsif option == 4
-      show_devs developers
-    elsif option == 5
-        puts 'Presione Enter para salir...' 
-        gets
-        false
-    else 
-      puts 'ERROR: Invalid option'
-    end
+    return add developers if option == 1
+    return add_skill developers if option == 2
+    return add_friend developers if option == 3 
+    return show_devs developers if option == 4
+    return false if option == 5
+    puts 'ERROR: Invalid option' and return
 end
   
 until menu(developers) == false do
