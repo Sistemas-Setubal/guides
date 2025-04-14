@@ -1,96 +1,89 @@
-REVIEWERS = ['Juan', 'David', 'Alvaro']
-REVIEWEES = [
-  { name: 'Alain', email: 'alain@localsolutionsit.com' },
-  { name: 'Amanda', email: 'amanda@localsolutionsit.com' },
-  { name: 'Brandon', email: 'brandon@localsolutionsit.com' },
-  { name: 'Tovar', email: 'tovar@localsolutionsit.com' },
-]
+REVIEWERS = ['Javier', 'David', 'Sebastian']
+REVIEWEES = ['Alain', 'Amanda', 'Tovar']
 
-
-
-def add_reviewer
-  puts 'What is the name who you will add to reviewers?'
-  reviewer = gets.chomp
-
-  REVIEWERS << reviewer
-
-  puts 'OK: Reviewer added successfuly'
-
-  REVIEWERS.map{|r| puts r.to_s}
-  
-end
 
 
 def review(filename='review.txt', &block)
 
-  puts "Select a reviewee to review: "
-  REVIEWEES.map{|r| puts r[:name].to_s.ljust(20) + r[:email].to_s }
+  puts 'Select a reviewee to review: '
+
+  show_reviewees
+
+  puts 'Reviewee: '
+
   revwe = gets.chomp
 
-  reviewee = REVIEWEES.find { |r| r[:name] == revwe }
-
-  if reviewee.nil?
-    puts 'ERROR: Reviewee not found'
-    return
-  end
-  r1, r2 = select_reviewer
-
-  reviewers = "Email send: Your reviewers are #{r1} and #{r2}."
+  reviewee_s = revwe if REVIEWEES.include? (revwe)
   
+  puts 'ERROR: Reviewee not found' if reviewee_s.nil?
+
+  reviewer1, reviewer2 = select_reviewer
+
+  reviewers = "Email send: Your reviewers are #{reviewer1} and #{reviewer2}."
   
   file = File.new filename, 'w'
-  yield file, reviewee, reviewers if block_given?
+  yield file, reviewee_s, reviewers if block_given?
   file.close
 end
 
 def select_reviewer
-  count_reviewers = REVIEWERS.length
 
-  r1 = REVIEWERS[Random.rand(count_reviewers)]
-  r2 = REVIEWERS[Random.rand(count_reviewers)]
+    show_reviewers
 
-  r2 != r1 ? [r1, r2] : select_reviewer
+    puts "\nSelect your Reviewers"
+    puts '1.- '
+    reviewer1 = gets.chomp
+    puts '2.- '
+    reviewer2 = gets.chomp
+
+    if REVIEWERS.find {|reviewer| reviewer == reviewer1}
+        if REVIEWERS.find {|reviewer| reviewer == reviewer2}
+            return reviewer1, reviewer2
+        end
+    end
+        
 end
 
 
 def show_reviewers
-  puts 'Reviewers: '
-  REVIEWERS.map{|r| puts r.to_s}
+  puts "\nReviewers: "
+
+  REVIEWERS.each { |reviewers| puts reviewers }
 end
 
 def show_reviewees
-  puts 'Reviewees: '
-  REVIEWEES.map{|r| puts r[:name].to_s.ljust(20) + r[:email].to_s }
+  puts "\nReviewees: "
+
+  REVIEWEES.each { |reviewees| puts reviewees }
 end
 
-def menu()
-  puts "\n\nMenu.\n1.- Add Reviewer.\n2.- Review.\n3.- Show Reviewers.\n4.- Show Reviewees.\n5.- Exit."
+
+def menu
+  puts 'Menu.
+  1.- Review.
+  2.- Show Reviewers.
+  3.- Show Reviewees.
+  4.- Exit.'
   
   option = gets.chomp.to_i
   
-  case option
-  when 1
-    add_reviewer
-  when 2
-    review do |file, reviewee, reviewers|
-      puts reviewers
-      file.write "Email to: #{reviewee[:email]}\n"
-      file.write "Body:\n\n"
-
-      file.write "Hi, #{reviewee[:name]}\n"
-      file.write reviewers
+    if option == 1
+        return review do |file, reviewee, reviewers|
+            puts reviewers
+            file.write "Email to: #{reviewee}@localsulutionsit.com\n"
+            file.write "Body:\n\n"
+            file.write "Hi, #{reviewee}\n"
+            file.write reviewers
+        end
     end
-  when 3
-    show_reviewers
-  when 4
-    show_reviewees
-  when 5
-    return false
-  else 
-    puts 'ERROR: Invalid option'
-  end
+
+    return show_reviewers if option == 2
+    return show_reviewees if option == 3
+    return false if option == 4
+    puts 'ERROR: Invalid option' and return
+  
 end
 
-until menu() == false do
+until menu == false do
   menu
 end

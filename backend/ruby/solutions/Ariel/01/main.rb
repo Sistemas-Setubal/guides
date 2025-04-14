@@ -18,7 +18,7 @@ def add(operator)
     pause
 end
 
-def show (operador)
+def show(operador)
     return puts 'theres no developers' if operador.empty?
     puts 'Developers'
     operador.each do |devs| 
@@ -26,7 +26,7 @@ def show (operador)
     end
 end
 
-def add_skill (operator)
+def add_skill(operator)
     show operator
     puts 'Whats the name you search?: '
     name = gets.chomp
@@ -42,7 +42,7 @@ def add_skill (operator)
     pause
 end
 
-def add_friend (operator)
+def add_friend(operator)
     show operator
     puts 'Whats the name you search?: '
     name = gets.chomp
@@ -64,7 +64,7 @@ def pause
     system 'clear'
 end
 
-def show_devs (operator)
+def show_devs(operator)
     puts 'There are not Devs' if operator.empty?
 
     operator.each do |dev|
@@ -75,7 +75,7 @@ def show_devs (operator)
     pause
 end
 
-def menu  (developers)
+def menu(developers)
     puts 'Menu.
     1.- Add Dev.
     2.- Add Skills.
