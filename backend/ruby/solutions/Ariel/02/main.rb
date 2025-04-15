@@ -2,7 +2,6 @@ REVIEWERS = ['Javier', 'David', 'Sebastian']
 REVIEWEES = ['Alain', 'Amanda', 'Tovar']
 
 def review(filename='review.txt', &block)
-
   puts 'Select a reviewee to review: '
 
   show_reviewees
@@ -15,8 +14,9 @@ def review(filename='review.txt', &block)
   
   puts 'ERROR: Reviewee not found' if reviewee_selected.nil?
 
-  reviewer1, reviewer2 = select_reviewer
-
+  reviewer1 = select_reviewer
+  reviewer2 = select_reviewer
+  
   reviewers = "\nEmail send: Your reviewers are #{reviewer1} and #{reviewer2}.\n"
   
   file = File.new filename, 'w'
@@ -25,21 +25,12 @@ def review(filename='review.txt', &block)
 end
 
 def select_reviewer
+  show_reviewers
 
-    show_reviewers
+  puts "\nSelect your Reviewer: "
+  reviewer_search = gets.chomp
 
-    puts "\nSelect your Reviewers"
-    puts '1.- '
-    reviewer1 = gets.chomp
-    puts '2.- '
-    reviewer2 = gets.chomp
-
-    if REVIEWERS.find {|reviewer| reviewer == reviewer1}
-        if REVIEWERS.find {|reviewer| reviewer == reviewer2}
-            return reviewer1, reviewer2
-        end
-    end
-        
+  return reviewer_search if REVIEWERS.find {|reviewer| reviewer == reviewer_search}
 end
 
 
