@@ -1,28 +1,26 @@
 REVIEWERS = ['Javier', 'David', 'Sebastian']
 REVIEWEES = ['Alain', 'Amanda', 'Tovar']
 
-
-
 def review(filename='review.txt', &block)
 
   puts 'Select a reviewee to review: '
 
   show_reviewees
 
-  puts 'Reviewee: '
+  puts "\nReviewee: "
 
-  revwe = gets.chomp
+  reviwee = gets.chomp
 
-  reviewee_s = revwe if REVIEWEES.include? (revwe)
+  reviewee_selected = reviwee if REVIEWEES.include? (reviwee)
   
-  puts 'ERROR: Reviewee not found' if reviewee_s.nil?
+  puts 'ERROR: Reviewee not found' if reviewee_selected.nil?
 
   reviewer1, reviewer2 = select_reviewer
 
-  reviewers = "Email send: Your reviewers are #{reviewer1} and #{reviewer2}."
+  reviewers = "\nEmail send: Your reviewers are #{reviewer1} and #{reviewer2}.\n"
   
   file = File.new filename, 'w'
-  yield file, reviewee_s, reviewers if block_given?
+  yield file, reviewee_selected, reviewers if block_given?
   file.close
 end
 
@@ -57,6 +55,16 @@ def show_reviewees
   REVIEWEES.each { |reviewees| puts reviewees }
 end
 
+def send_review
+
+    review do |file, reviewee, reviewers|
+        puts reviewers
+        file.write "Email to: #{reviewee}@localsulutionsit.com\n"
+        file.write "Body:\n\n"
+        file.write "Hi, #{reviewee}\n"
+        file.write reviewers
+    end
+end
 
 def menu
   puts 'Menu.
@@ -67,16 +75,7 @@ def menu
   
   option = gets.chomp.to_i
   
-    if option == 1
-        return review do |file, reviewee, reviewers|
-            puts reviewers
-            file.write "Email to: #{reviewee}@localsulutionsit.com\n"
-            file.write "Body:\n\n"
-            file.write "Hi, #{reviewee}\n"
-            file.write reviewers
-        end
-    end
-
+    return send_review if option == 1
     return show_reviewers if option == 2
     return show_reviewees if option == 3
     return false if option == 4
